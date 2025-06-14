@@ -1,0 +1,83 @@
+{
+  "name": "yucoder-chat",
+  "displayName": "YuCoder 聊天室",
+  "description": "YuCoder聊天室VSCode插件",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "yucoder-chat.openChat",
+        "title": "打开聊天室",
+        "category": "YuCoder"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "yucoder-chat",
+          "title": "YuCoder聊天室",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "yucoder-chat": [
+        {
+          "type": "webview",
+          "id": "yucoder-chat.chatView",
+          "name": "聊天室"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "YuCoder聊天室",
+      "properties": {
+        "yucoderChat.token": {
+          "type": "string",
+          "default": "",
+          "description": "YuCoder聊天室Token，从 yucoder.cn 获取",
+          "order": 1
+        },
+        "yucoderChat.showAvatar": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否显示用户头像",
+          "order": 2
+        },
+        "yucoderChat.showImages": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否自动显示图片（关闭时点击可查看）",
+          "order": 3
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "rm -rf ./out && tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "ws": "^8.14.2",
+    "@types/ws": "^8.5.8"
+  }
+} 
