@@ -3,6 +3,12 @@
   "displayName": "YuCoder 聊天室",
   "description": "YuCoder聊天室VSCode插件",
   "version": "0.0.2",
+  "license": "MIT",
+  "repository": {
+    "author": "kirikoko1213",
+    "type": "git",
+    "url": "https://github.com/kirikoko1213/yucoder-vsc-plugin.git"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
